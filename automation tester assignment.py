@@ -5,9 +5,12 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+import os
 
 # Initialize the WebDriver service
-service_obj = Service("C:\\Users\\tamilvs\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe")
+home_directory = os.path.expanduser("~")
+chromedriver_path = os.path.join(home_directory, "Downloads", "chromedriver-win64", "chromedriver-win64", "chromedriver.exe")
+service_obj = Service(chromedriver_path)
 driver = webdriver.Chrome(service=service_obj)
 driver.maximize_window()
 try:
